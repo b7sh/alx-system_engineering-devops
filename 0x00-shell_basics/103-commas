@@ -1,2 +1,2 @@
 #!/bin/bash
-la -map .. /0-commas /0-commas-checks/1-empty_casks/gifs/directories/zeros/root13/odd/-sort_rot13/makefile/quote/.test/test_dir/test.var
+ls -map .. /0-commas /0-commas-checks/1-empty_casks/gifs/directories/zeros/root13/odd/-sort_rot13/makefile/quote/.test/test_dir/test.var
