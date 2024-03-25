@@ -2,4 +2,3 @@
 Host *
   IdentifyFile ~/.ssh/school
   PasswordAuthentication no
-  PreferredAuthentications publickey
