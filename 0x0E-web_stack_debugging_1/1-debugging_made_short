@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# keep Nginx working on port 80
+ln -sf /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default
+kill "$(pgrep 'nginx' | head -1)"
