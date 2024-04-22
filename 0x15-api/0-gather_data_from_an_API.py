@@ -18,8 +18,7 @@ if __name__ == "__main__":
     for element in todo:
         if element.get("completed") is True:
             completed.append(element.get("title"))
-    print(
-            "Employee {} is done with tasks({}/{}):".format(
-                response.get("name"), len(completed), len(todo)))
+    print("Employee {} is done with tasks({}/{}):".format(
+        response.get("name"), len(completed), len(todo)))
     for i in completed:
         print("\t {}".format(i))
