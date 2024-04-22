@@ -9,16 +9,16 @@ import sys
 
 
 if __name__ == "__main__":
-    id = sys.argv[1]
+    employee_id = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + "users/{}".format(id)).json()
+    user = requests.get(url + "users/{}".format(employee_id)).json()
     # .json() converts json string in to a dictionary
-    todo = requests.get(url + "todos", params={"userId": id}).json()
+    todos = requests.get(url + "todos", params={"userId": employee_id}).json()
     completed = []
-    for do in todo:
-        if do.get("completed") is True:
-            completed.append(do.get("title"))
+    for todo in todos:
+        if todo.get("completed") is True:
+            completed.append(todo.get("title"))
     print("Employee {} is done with tasks({}/{}):".format(
         user.get("name"), len(completed), len(todo)))
-    for i in completed:
-        print("\t {}".format(i))
+    for index in completed:
+        print("\t {}".format(index))
