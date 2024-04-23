@@ -14,7 +14,6 @@ if __name__ == "__main__":
     response = requests.get(url + "users/{}".format(employee_id))
     user = response.json()
     parms = {"userId": employee_id}
-    # .json() converts json string in to a dictionary
     todos_response = requests.get(url + "todos", params=parms)
     todos = todos_response.json()
     completed = []

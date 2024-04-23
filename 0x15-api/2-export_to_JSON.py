@@ -4,7 +4,7 @@
     for a given employee ID, returns information
     about his/her TODO list progress.
 """
-import csv
+import json
 import requests
 import sys
 
@@ -18,9 +18,12 @@ if __name__ == "__main__":
     parms = {"userId": employee_id}
     todos_response = requests.get(url + "todos", params=parms)
     todos = todos_response.json()
-    filename = "{}.csv".format(id)
-    with open(filename, 'w', newline="") as f:
-        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        for todo in todos:
-            writer.writerow([id, username, todo.get(
-                "completed"), todo.get("title")])
+    data_to_dump = {employee_id: []}
+    for todo in todos:
+        data_to_dump[employee_id].append({
+            "task": todo.get("title"),
+            "completed": todo.get("completed"),
+            "username": username
+        })
+        with open("{}.json".format(employee_id), "w") as jsonfile:
+            json.dump(data_to_dump, jsonfile)
