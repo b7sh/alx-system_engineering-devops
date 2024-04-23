@@ -15,8 +15,8 @@ if __name__ == "__main__":
     response = requests.get(url + "users/{}".format(employee_id))
     user = response.json()
     username = user.get("username")
-    parms = {"userId": employee_id}
-    todos_response = requests.get(url + "todos", params=parms)
+    params = {"userId": employee_id}
+    todos_response = requests.get(url + "todos", params=params)
     todos = todos_response.json()
     data_to_dump = {employee_id: []}
     for todo in todos:

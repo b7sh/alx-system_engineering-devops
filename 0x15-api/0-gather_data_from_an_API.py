@@ -10,8 +10,8 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     response = requests.get(url + "users/{}".format(employee_id))
     user = response.json()
-    parms = {"userId": employee_id}
-    todos_response = requests.get(url + "todos", params=parms)
+    params = {"userId": employee_id}
+    todos_response = requests.get(url + "todos", params=params)
     todos = todos_response.json()
     completed = []
     for todo in todos:

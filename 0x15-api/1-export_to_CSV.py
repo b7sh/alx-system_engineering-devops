@@ -15,12 +15,12 @@ if __name__ == "__main__":
     response = requests.get(url + "users/{}".format(employee_id))
     user = response.json()
     username = user.get("username")
-    parms = {"userId": employee_id}
-    todos_response = requests.get(url + "todos", params=parms)
+    params = {"userId": employee_id}
+    todos_response = requests.get(url + "todos", params=params)
     todos = todos_response.json()
-    filename = "{}.csv".format(id)
+    filename = "{}.csv".format(employee_id)
     with open(filename, 'w', newline="") as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for todo in todos:
-            writer.writerow([id, username, todo.get(
+            writer.writerow([employee_id, username, todo.get(
                 "completed"), todo.get("title")])
