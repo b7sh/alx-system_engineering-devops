@@ -3,7 +3,6 @@
 import json
 import requests
 
-
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     response = requests.get(url + "users")
