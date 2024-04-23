@@ -13,16 +13,16 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     response = requests.get(url + "users/{}".format(employee_id))
     user = response.json()
+    parms = {"userId": employee_id}
     # .json() converts json string in to a dictionary
-    todos_response = requests.get(url + "todos", params={"userId": employee_id})
+    todos_response = requests.get(url + "todos", params=parms)
     todos = todos_response.json()
     completed = []
     for todo in todos:
-        if todo.get("completed") is True:
-            completed.append(todo.get("title"))
-    employee_name = user.get("name")
-    employee_name_fixed = employee_name[:18].ljust(18)
+        if todo["completed"] is True:
+            completed.append(todo["title"])
+    employee_name = user["name"]
     print("Employee {} is done with tasks({}/{}):".format(
-        employee_name_fixed, len(completed), len(todo)))
+        employee_name, len(completed), len(todo)))
     for index in completed:
         print("\t {}".format(index))
