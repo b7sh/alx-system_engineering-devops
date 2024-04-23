@@ -11,14 +11,12 @@ if __name__ == "__main__":
     response = requests.get(url + "users/{}".format(employee_id))
     user = response.json()
     params = {"userId": employee_id}
+    params_2 = {"userId": employee_id, "completed": "true"}
     todos_response = requests.get(url + "todos", params=params)
     todos = todos_response.json()
-    completed = []
-    for todo in todos:
-        if todo["completed"] is True:
-            completed.append(todo["title"])
+    completed = requests.get(url + "todos", params=params_2).json()
     employee_name = user["name"]
     print("Employee {} is done with tasks({}/{}):".format(
-        employee_name, len(completed), len(todo)))
+        employee_name, len(completed), len(todos)))
     for index in completed:
-        print("\t {}".format(index))
+        print("\t {}".format(index['title']))
