@@ -20,7 +20,9 @@ if __name__ == "__main__":
     for todo in todos:
         if todo.get("completed") is True:
             completed.append(todo.get("title"))
+    employee_name = user.get("name")
+    employee_name_fixed = employee_name[:18].ljust(18)
     print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), len(completed), len(todo)))
+        employee_name_fixed, len(completed), len(todo)))
     for index in completed:
         print("\t {}".format(index))
