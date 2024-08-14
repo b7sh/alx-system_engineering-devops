@@ -2,7 +2,7 @@
 """
     Function to ueries the Reddit API 
     and prints the titles of the first
-      10 hot posts listed.
+    10 hot posts listed.
 """
 import requests
 
