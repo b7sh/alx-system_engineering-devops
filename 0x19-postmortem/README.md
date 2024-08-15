@@ -1,25 +1,22 @@
 Issue Summary:
-
-duration of the outage with start and end times (including timezone)
-what was the impact (what service was down/slow? What were user experiencing? How many % of the users were affected?)
-what was the root cause
+Duration of the Outage: The outage started at 07:30 pm and was resolved by 07:55 PM West saudi arabia Time.
 
 Timeline:
- time - keep it short, 1 or 2 sentences) must contain:
 
-when was the issue detected
-how was the issue detected (monitoring alert, an engineer noticed something, a customer complained…)
-actions taken (what parts of the system were investigated, what were the assumption on the root cause of the issue)
-misleading investigation/debugging paths that were taken
-which team/individuals was the incident escalated to
-how the incident was resolved
+07:30 - The issue was detected
+07:35 - the system was down
+07:43 - focus on the problem
+07:50 - try many solutions
+07:55 - the problem solved
 
 Root cause and resolution:
-
-explain in detail what was causing the issue
-explain in detail how the issue was fixed
+-The root cause was the failure to link the sites-available configuration to sites-enabled, meaning the Nginx server configuration was not active despite being correct.
+-The issue was resolved by linking the default configuration from sites-available to sites-enabled and restarting the Nginx service.
 
 Corrective and preventative measures:
+Ensuring that after any configuration changes, a script or automated check is run to confirm that the necessary configurations are linked and active. Improve the monitoring system to detect such issues earlier.
 
-what are the things that can be improved/fixed (broadly speaking)
-a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)
+![pQ9YzVY](https://github.com/user-attachments/assets/76bc90db-4afb-4335-b981-c7b4cf0ee79b)
+
+
+
